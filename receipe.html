@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueRecipeBook - Recipe Browser</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">VueRecipeBook</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="app" class="container mt-5">
+        <h2>Recipe Browser</h2>
+        
+        <!-- Display list of recipes -->
+        <ul>
+            <li v-for="recipe in recipes" @click="showRecipeDetails(recipe.id)">
+                {{ recipe.name }}
+            </li>
+        </ul>
+
+        <!-- Display selected recipe details -->
+        <div v-if="selectedRecipe">
+            <h3>{{ selectedRecipe.name }}</h3>
+            <p>{{ selectedRecipe.description }}</p>
+            <img :src="selectedRecipe.image" alt="Recipe Image" class="img-fluid">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <p>&copy; 2024 VueRecipeBook</p>
+    </footer>
+
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Custom Vue script -->
+    <script src="vueApp.js"></script>
+</body>
+</html>
